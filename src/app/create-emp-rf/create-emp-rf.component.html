@@ -1,0 +1,73 @@
+<div class="container mt-4">
+  <h3 class="text-center">Reactive Form</h3>
+  <div class="card">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+      <form [formGroup]="empForm" (ngSubmit)="onsubmit()">
+        <div class="form-group row">
+          <label for="name" class="col-md-4 text-right mt-1">Name
+          </label>
+          <div class="col-md-5">
+            <input type="text" id="name" class="form-control" formControlName="Name" placeholder="Enter Employee Name"
+              required>
+            <div class="text-danger"
+              *ngIf="empForm.get('Name').invalid && (empForm.get('Name').dirty || empForm.get('Name').touched)">Name is
+              required</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-4 text-right mt-1">Gender
+          </label>
+          <div class="col-md-5">
+            <div class="form-control">
+              <div class="form-check-inline">
+                <label for="genderm">
+                  <input type="radio" id="genderm" formControlName="Gender" value="Male"> Male
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label for="genderf">
+                  <input type="radio" id="genderf" formControlName="Gender" value="Female"> Female
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="phone" class="col-md-4 text-right mt-1">Phone
+          </label>
+          <div class="col-md-5">
+            <input type="text" id="phone" formControlName="Phone" placeholder="Enter Employee Phone"
+              class="form-control" required>
+            <div class="text-danger"
+              *ngIf="empForm.get('Phone').invalid && (empForm.get('Phone').dirty || empForm.get('Phone').touched)">Phone
+              is required</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="email" class="col-md-4 text-right mt-1">Email
+          </label>
+          <div class="col-md-5">
+            <input type="email" id="email" formControlName="Email" placeholder="Enter Employee Email"
+              class="form-control" required>
+            <div class="text-danger"
+              *ngIf="empForm.get('Email').invalid && (empForm.get('Email').dirty || empForm.get('Email').touched)">Email
+              is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-sm" [disabled]="empForm.invalid">{{btnName}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card mt-5 mb-5">
+    <div class="card-header">Form Status: {{empForm.status}}
+    </div>
+    <div class="card-body">
+      <pre>{{empForm.value | json}}</pre>
+    </div>
+  </div>
+</div>

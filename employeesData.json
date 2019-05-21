@@ -1,0 +1,32 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "Name": "Sundar Pichai",
+      "Gender": "Male",
+      "Phone": "8562312478",
+      "Email": "sundar.p@gmail.com"
+    },
+    {
+      "id": 2,
+      "Name": "Satya Nadella",
+      "Gender": "Male",
+      "Phone": "8956236985",
+      "Email": "satya.n@gmail.com"
+    },
+    {
+      "id": 3,
+      "Name": "Shantanu Narayen",
+      "Gender": "Male",
+      "Phone": "9966332255",
+      "Email": "shantanu.n@gmail.com"
+    },
+    {
+      "id": 4,
+      "Name": "Ashok Soota",
+      "Gender": "Male",
+      "Phone": "8523698741",
+      "Email": "ashok.s@gmail.com"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+<div class="container mt-4">
+  <h3 class="text-center">Template Driven Form</h3>
+  <div class="card">
+    <div class="card-header">{{title}}</div>
+    <div class="card-body">
+      <form #fm="ngForm" (ngSubmit)="onsubmit()">
+        <div class="form-group row">
+          <label for="name" class="col-md-4 text-right mt-1">Name
+          </label>
+          <div class="col-md-5">
+            <input type="text" id="name" class="form-control" [(ngModel)]="employee.Name" name="name"
+              placeholder="Enter Employee Name" #name="ngModel" required>
+            <div class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">Name is required</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-4 text-right mt-1">Gender
+          </label>
+          <div class="col-md-5">
+            <div class="form-control">
+              <div class="form-check-inline">
+                <label for="genderm">
+                  <input type="radio" id="genderm" [(ngModel)]="employee.Gender" name="gender" value="Male"> Male
+                </label>
+              </div>
+              <div class="form-check-inline">
+                <label for="genderf">
+                  <input type="radio" id="genderf" [(ngModel)]="employee.Gender" name="gender" value="Female"> Female
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="phone" class="col-md-4 text-right mt-1">Phone
+          </label>
+          <div class="col-md-5">
+            <input type="text" id="phone" name="phone" [(ngModel)]="employee.Phone" #phone="ngModel"
+              placeholder="Enter Employee Phone" class="form-control" required>
+            <div class="text-danger" *ngIf="phone.invalid && (phone.dirty || phone.touched)">Phone is required</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="email" class="col-md-4 text-right mt-1">Email
+          </label>
+          <div class="col-md-5">
+            <input type="email" id="email" name="email" [(ngModel)]="employee.Email" #email="ngModel"
+              placeholder="Enter Employee Email" class="form-control" required>
+            <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">Email is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-sm" [disabled]="fm.invalid">{{btnName}}</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card mt-5 mb-5">
+    <div class="card-header">Form Status: {{fm.status}}
+    </div>
+    <div class="card-body">
+      <pre>{{fm.value | json}}</pre>
+    </div>
+  </div>
+</div>
