@@ -23,9 +23,14 @@
             <button type="button" (click)="OnEditClick('TDF',employee.id)" class="btn btn-primary btn-sm">Edit in
               TDF</button>
           </div>
-          <div class="btn-group">
+          <div class="btn-group mr-2">
             <button type="button" (click)="OnEditClick('RF',employee.id)" class="btn btn-primary btn-sm">Edit in
               RF</button>
+          </div>
+          <div class="btn-group">
+            <button title="Delete" class="btn btn-sm" (click)="deleteEmp(employee.id)">
+              <i class="fas fa-trash" style="font-size: 20px"></i>
+            </button>
           </div>
         </td>
       </tr>

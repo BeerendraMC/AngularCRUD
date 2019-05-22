@@ -30,4 +30,10 @@ export class EmployeeService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     });
   }
+
+  deleteEmployee(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiURL}/${id}`, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
 }

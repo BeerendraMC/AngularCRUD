@@ -27,6 +27,7 @@ export class EmployeeListComponent implements OnInit {
         this.message = '';
       },
       err => {
+        this.message = err.message;
         console.error(err);
       }
     );
@@ -38,5 +39,16 @@ export class EmployeeListComponent implements OnInit {
     } else if (type === 'RF') {
       this.router.navigate(['editrf', id]);
     }
+  }
+
+  deleteEmp(id: number) {
+    this.employeeService.deleteEmployee(id).subscribe(
+      () => {
+        this.getAllEmps();
+      },
+      err => {
+        console.error(err);
+      }
+    );
   }
 }
