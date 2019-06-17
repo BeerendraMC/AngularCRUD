@@ -11,11 +11,21 @@ import { Router } from '@angular/router';
 export class EmployeeListComponent implements OnInit {
 
   message = '';
+  caption: string;
   Employees: IEmployee[];
+  colsToDisplay: {field: string; header: string}[];
   constructor(private employeeService: EmployeeService,
               private router: Router) { }
 
   ngOnInit() {
+    this.colsToDisplay = [
+      {field: 'id', header: 'Id'},
+      {field: 'Name', header: 'Name'},
+      {field: 'Gender', header: 'Gender'},
+      {field: 'Phone', header: 'Phone'},
+      {field: 'Email', header: 'Email'}
+    ];
+    this.caption = 'Employees List';
     this.getAllEmps();
   }
 

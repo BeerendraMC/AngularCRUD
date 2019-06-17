@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div class="container-fluid pt-5 pb-5">
   <div *ngIf="message">{{message}}</div>
-  <table *ngIf="!message" class="table table-hover">
+  <!-- <table *ngIf="!message" class="table table-hover">
     <thead class="thead-dark">
       <tr>
         <th>Id</th>
@@ -35,5 +35,9 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+  <app-grid *ngIf="!message" [columnsToDisplay]="colsToDisplay" [dataSource]="Employees" [caption]="caption" rows="5"
+    [displayCheckbox]="true"></app-grid>
+
 </div>

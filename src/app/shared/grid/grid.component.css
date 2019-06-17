@@ -1,0 +1,26 @@
+:host ::ng-deep .ui-inputtext.colFilterTBs{
+    width: 100% !important;
+}
+
+:host ::ng-deep .ui-table table{
+    min-width: 100% !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:nth-child(even).ui-state-highlight{
+    background-color: #f9f9f9 !important;
+    color: #333333 !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr:nth-child(odd).ui-state-highlight{
+    background-color: #fff !important;
+    color: #333333 !important;
+}
+
+:host ::ng-deep .ui-chkbox .ui-chkbox-box.ui-state-active{
+    border: 1px solid #a6a6a6 !important;
+    background-color: #fff !important;
+    color: #005b9f !important;
+}
+
+
+

@@ -1,0 +1,51 @@
+<div class="container-fluid pt-3">
+    <p-table #dt [columns]="columnsToDisplay" [value]="dataSource" sortMode="multiple" [paginator]="true" [rows]="rows"
+        [resizableColumns]="true" columnResizeMode="expand" [rowsPerPageOptions]="[5,10,20,30]"
+        [(selection)]="selectedRows" dataKey="id">
+        <ng-template pTemplate="caption">
+            <div *ngIf="caption">
+                {{caption | titlecase}}
+            </div>
+            <div style="text-align: right">
+                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="50" placeholder="Global Filter"
+                    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto;height: 30px;">
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngIf="displayCheckbox" style="width: 3em">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                </th>
+                <th *ngFor="let col of columns" pResizableColumn [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+            <tr>
+                <th *ngIf="displayCheckbox"> </th>
+                <th *ngFor="let col of columns">
+                    <input style="height: 30px" class="colFilterTBs" pInputText type="text"
+                        (input)="dt.filter($event.target.value, col.field,'contains')">
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <td *ngIf="displayCheckbox">
+                    <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                </td>
+                <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template *ngIf="displayCheckbox" pTemplate="summary">
+            <ul>
+                <li *ngFor="let row of selectedRows" style="text-align: left">
+                    {{row.Name + ' - ' + row.Gender + ' - ' + row.Phone + ' - ' + row.Email}}
+                </li>
+            </ul>
+        </ng-template>
+    </p-table>
+</div>
