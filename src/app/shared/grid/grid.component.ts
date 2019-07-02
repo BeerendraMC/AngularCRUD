@@ -12,7 +12,7 @@ import { Component, OnInit, Input } from '@angular/core';
 */
 export class GridComponent implements OnInit {
 
-  @Input() columnsToDisplay: {field: string; header: string}[];
+  @Input() columnsToDisplay: Array<{field: string; header: string}>;
   @Input() dataSource: any[];
   @Input() rows ? = 5;
   @Input() rowsPerPageOptions?: number[] = [5, 10, 20, 30];

@@ -1,0 +1,57 @@
+table {
+    width: 100%;
+    border-collapse: unset !important;
+}
+
+th {
+    z-index: 1 !important;
+}
+
+:host ::ng-deep label {
+    margin-bottom: unset !important;
+}
+
+.table-container {
+    max-height: 350px;
+    overflow: auto;
+}
+
+:host ::ng-deep .mat-paginator-container {
+    border-top: 1px solid #e0e0e0;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+:host ::ng-deep button:focus {
+    outline: unset !important;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    margin-left: 70%;
+    margin-top: 5px;
+    width: 25%;
+}
+
+:host ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+:host ::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: unset !important;
+    /* border: 2px solid rgba(0,0,0,.54); */
+}
+
+:host ::ng-deep .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element, 
+:host ::ng-deep .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background-color: #000 !important;
+}
+
+:host ::ng-deep .mat-checkbox-checkmark-path {
+    stroke: green !important;
+    stroke-width: 3px !important;
+}
+
+:host ::ng-deep .mat-checkbox-mixedmark {
+    background-color: green !important;
+    stroke-width: 3px !important;
+}

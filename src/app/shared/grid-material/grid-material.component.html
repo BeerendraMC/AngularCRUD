@@ -1,0 +1,42 @@
+<div class="container-fluid pt-3">
+  <h3>Angular Material Component</h3><br />
+  <div class="mat-elevation-z8">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Global Filter">
+    </mat-form-field>
+    <div class="table-container">
+      <table mat-table [dataSource]="gridDataSource" matSort>
+        <ng-container *ngFor="let column of gridConfig" [matColumnDef]="column.name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="!column.sort">
+            <mat-checkbox *ngIf="column.name == 'checkbox'" (change)="$event ? masterToggle() : null"
+              [checked]="selection.hasValue() && isAllSelected()"
+              [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+            </mat-checkbox>
+            <span *ngIf="column.name !== 'checkbox'">
+              {{ column.label | titlecase }}
+            </span>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-checkbox *ngIf="column.name == 'checkbox'" (click)="$event.stopPropagation()"
+              (change)="$event ? selection.toggle(element) : null" [checked]="selection.isSelected(element)"
+              [aria-label]="checkboxLabel(element)">
+            </mat-checkbox>
+            <div *ngIf="column.name !== 'checkbox'" [ngStyle]="column.style">
+              {{ element[column.name] }}
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+      </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    <div *ngIf="selection.selected.length > 0">
+      <ul>
+        <li *ngFor="let row of selection.selected" style="text-align: left">
+          {{row.Name + ' - ' + row.Gender + ' - ' + row.Phone + ' - ' + row.Email}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

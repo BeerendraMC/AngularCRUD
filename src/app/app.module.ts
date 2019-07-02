@@ -19,6 +19,15 @@ import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import {InputTextModule} from 'primeng/inputtext';
 
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+import { GridMaterialComponent } from './shared/grid-material/grid-material.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +37,8 @@ import {InputTextModule} from 'primeng/inputtext';
     CreateEmpRFComponent,
     HomeComponent,
     PageNotFoundComponent,
-    GridComponent
+    GridComponent,
+    GridMaterialComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +49,12 @@ import {InputTextModule} from 'primeng/inputtext';
     TableModule,
     ButtonModule,
     InputTextModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatCheckboxModule,
     AppRoutingModule
   ],
   providers: [EmployeeService],

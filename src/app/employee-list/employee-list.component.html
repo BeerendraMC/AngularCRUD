@@ -37,6 +37,11 @@
     </tbody>
   </table> -->
 
+  <app-grid-material *ngIf="!message" [displayedColumns]="displayedColumns" [gridConfig]="gridConfiguration"
+    [dataSource]="Employees"></app-grid-material>
+
+    <br/><br/><br />
+
   <app-grid *ngIf="!message" [columnsToDisplay]="colsToDisplay" [dataSource]="Employees" [caption]="caption" rows="5"
     [displayCheckbox]="true"></app-grid>
 

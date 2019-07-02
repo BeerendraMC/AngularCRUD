@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CreateEmpTDComponent implements OnInit {
 
-  @ViewChild('fm') form: any;
+  @ViewChild('fm', {static: false}) form: any;
 
   employee: IEmployee = {
     id: null,

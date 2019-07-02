@@ -1,4 +1,5 @@
 <div class="container-fluid pt-3">
+    <h3>PrimeNg Component</h3><br />
     <p-table #dt [columns]="columnsToDisplay" [value]="dataSource" sortMode="multiple" [paginator]="true" [rows]="rows"
         [resizableColumns]="true" columnResizeMode="expand" [rowsPerPageOptions]="[5,10,20,30]"
         [(selection)]="selectedRows" dataKey="id">
@@ -48,4 +49,5 @@
             </ul>
         </ng-template>
     </p-table>
+
 </div>
